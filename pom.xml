@@ -20,6 +20,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.github.ntrrgc</groupId>
+            <artifactId>ts-generator</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
             <version>3.0</version>
@@ -61,4 +67,11 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 </project>

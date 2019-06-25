@@ -3,7 +3,7 @@ jdk: openjdk11
 
 install: true
 
-script: ./build.sh
+script: .travis/build.sh
 
 cache:
   directories:

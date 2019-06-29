@@ -39,6 +39,14 @@
 
         <plugins>
             <plugin>
+                <groupId>com.github.j2ts</groupId>
+                <artifactId>java-to-typescript-maven-plugin</artifactId>
+                <configuration>
+                    <annotation>com.example.AKotLinAnnotation</annotation>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
@@ -60,7 +68,6 @@
                 </executions>
             </plugin>
 
-            <!-- TODO
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -80,24 +87,6 @@
                             <mainClass>com.example.Main</mainClass>
                         </manifest>
                     </archive>
-                </configuration>
-            </plugin>
-            -->
-
-            <plugin>
-                <groupId>com.github.j2ts</groupId>
-                <artifactId>java-to-typescript-maven-plugin</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>sayhi</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!--TODO-->
                 </configuration>
             </plugin>
         </plugins>

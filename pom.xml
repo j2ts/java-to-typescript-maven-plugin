@@ -7,6 +7,13 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
+    <name>Java to Typescript Maven plugin</name>
+    <description>
+        A dead simple plugin for sharing types between backend and frontend,
+        or just generating typescript for any purpose.
+    </description>
+    <url>https://github.com/j2ts/java-to-typescript-maven-plugin</url>
+
     <properties>
         <java.version>1.8</java.version>
         <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>

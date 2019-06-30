@@ -20,3 +20,7 @@ Create typescript definitions from annotated java (or other JVM language) types
     </plugins>
 </project>
 ```
+
+## Local Nexus
+Might prevent you from obtaining the `com.github.ntrrgc:ts-generator` dependency, that is provided by JitPack.
+In this case you might need to build using a separate `settings.xml` file (using maven `-s` flag), or by adding JitPack as a repository in your Nexus. 

@@ -7,4 +7,11 @@ script: .travis/build.sh
 
 cache:
   directories:
-    - $HOME/.m2
+  - "$HOME/.m2"
+
+deploy:
+  provider: script
+  script: ".travis/maven_release.sh $TRAVIS_TAG $encrypted_90cc575f34f1_key $encrypted_90cc575f34f1_iv"
+  skip_cleanup: true
+  on:
+    tags: true

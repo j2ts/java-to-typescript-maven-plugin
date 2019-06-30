@@ -1,6 +1,12 @@
 language: java
 jdk: openjdk8
 
+addons:
+  sonarcloud:
+    organization: jensim-github
+    token:
+      secure: IuCMWTz2ti3kAEybNA5SPEr/TESDjFY/b3Qv9DS9MkeAZgSD1KSF397RwybGkkHqoMil/NA1Px1ExnclAgh05c7RxjsSOpW7UiCW/HVHYeTVYZ528wg154/0Xl/loInbs+xemjhxtB1YsdCqRcF8MuacIsC40zA+yztY4OsPcuoxmKkNLotWob4+pI8SHsPCr4mVhIERcbmxfpOLTuocbpFl/QL2gThQT93Q2oeveQkExgRm0+Uij4acGFMktc4eEkOC403E5q4ymkgn3Sj/Hx7xxxZOW2YiSRdUr/tKVw0wO0RioIyhRHSl54DN2WmCJBEl/DDm9uEy0dahgAvwlBgOfxNuy64n542Rx9Wb3UCXrdQpqYw93hERRfIXnTeK2w72+kGp7tTmVMbggv82kfiftH9vML2q5UWsoEyghOLc+YBQP+UPYDeFTNMntxCGWgGyWtqVXWDNHTR5g73ehxNQ0QQlFstIMZxkJSLVKWAysLyzgRZ1uHbKtDA7euZCqv7XQneYEyDnL8Ywq4fpD2JhsHuu6Eq1EWoBko8kvALO0/yNKcbXD8EOusJa7Va7n6/P7o5zkr4D7eiXT4YOrTSUwGb/Llmgd4IxGzzjnJQdUnc7WIqyhK71Uk19KXCp8GDdfwctgoYGp/DVprMJ7ayzwf1QuMCw8hrI4t+R3t0=
+
 install: true
 
 script: .travis/build.sh

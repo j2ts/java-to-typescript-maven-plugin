@@ -14,4 +14,4 @@ git add pom.xml
 git commit -m "Setting release version"
 
 mvn -B release:prepare
-mvn release:perform
+mvn -B release:perform

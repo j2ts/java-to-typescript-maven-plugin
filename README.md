@@ -5,19 +5,16 @@ Create typescript definitions from annotated java (or other JVM language) types
 ![JDK](https://img.shields.io/badge/JDK-%3E%3D1.8-lightgrey.svg)
 ```xml
 <project>
-    <!-- ... -->
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
     <plugins>
         <plugin>
             <groupId>com.github.j2ts</groupId>
             <artifactId>java-to-typescript-maven-plugin</artifactId>
+            <version>${j2ts.version}</version>
+            <executions><execution><goals><goal>j2ts</goal></goals></execution></executions>
             <configuration>
-                <annotation>com.example.AKotLinAnnotation</annotation>
+                <annotation>com.example.AKotlinAnnotation</annotation>
+                <!-- Optional -->
+                <outputFileRef>${project.build.outputDirectory}/j2ts/${project.artifactId}.ts.d</outputFileRef>
             </configuration>
         </plugin>
     </plugins>

@@ -24,33 +24,12 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>${project.basedir}/src/test/resources</directory>
-            </testResource>
-        </testResources>
-
         <plugins>
-            <plugin>
-                <groupId>com.github.j2ts</groupId>
-                <artifactId>java-to-typescript-maven-plugin</artifactId>
-                <configuration>
-                    <annotation>com.example.AKotLinAnnotation</annotation>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
-
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -58,7 +37,6 @@
                             <goal>compile</goal>
                         </goals>
                     </execution>
-
                     <execution>
                         <id>test-compile</id>
                         <goals>
@@ -66,6 +44,16 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.j2ts</groupId>
+                <artifactId>java-to-typescript-maven-plugin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <executions><execution><goals><goal>j2ts</goal></goals></execution></executions>
+                <configuration>
+                    <annotation>com.example.AKotLinAnnotation</annotation>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -90,5 +78,18 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/test/resources</directory>
+            </testResource>
+        </testResources>
     </build>
 </project>

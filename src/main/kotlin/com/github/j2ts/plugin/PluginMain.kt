@@ -2,6 +2,7 @@ package com.github.j2ts.plugin
 
 import me.ntrrgc.tsGenerator.TypeScriptGenerator
 import org.apache.maven.plugin.AbstractMojo
+import org.apache.maven.plugins.annotations.LifecyclePhase.COMPILE
 import org.apache.maven.plugins.annotations.Mojo
 import org.apache.maven.plugins.annotations.Parameter
 import org.apache.maven.project.MavenProject
@@ -9,7 +10,7 @@ import org.reflections.Reflections
 import java.io.File
 import java.net.URLClassLoader
 
-@Mojo(name = "j2ts")
+@Mojo(name = "j2ts", defaultPhase = COMPILE)
 class PluginMain : AbstractMojo() {
 
     @Parameter(readonly = true, defaultValue = "\${project}")
@@ -21,7 +22,7 @@ class PluginMain : AbstractMojo() {
     @Parameter(property = "j2ts.outputFile")
     private var outputFileRef: String? = null
     private val outputFile: File by lazy {
-        File(outputFileRef ?: "${project.basedir.absolutePath}/src/main/resources/j2ts/${project.artifactId}.ts.d")
+        File(outputFileRef ?: "${project.build.outputDirectory}/j2ts/${project.artifactId}.ts.d")
     }
 
     @Parameter(property = "j2ts.annotation", required = true)

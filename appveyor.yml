@@ -1,0 +1,22 @@
+version: '{build}'
+os: Windows Server 2012
+
+install:
+  - cmd: SET JAVA_HOME=C:\Program Files\Java\jdk1.8.0
+  - cmd: SET PATH=%JAVA_HOME%\bin;%PATH%
+build_script:
+  - mvn install -B -DskipTest -e
+  - mvn package -B -DskipTest -f example\pom.xml -e
+test_script:
+  - mvn test -B
+  - mvn test -B -f example\pom.xml
+  - echo "Running Jar integration test in Java project"
+  - java -jar example\target\example-0.0.0-SNAPSHOT-jar-with-dependencies.jar
+cache:
+  - C:\maven\
+  - C:\Users\appveyor\.m2
+
+skip_tags: true
+branches:
+  only:
+    - master

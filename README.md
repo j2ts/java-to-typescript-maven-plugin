@@ -39,3 +39,10 @@ In this case you might need to build using a separate `settings.xml` file (using
 ```bash
 mvn clean install -s ./settings.xml -e
 ```
+
+## Dependencies
+* [org.reflections](https://github.com/ronmamo/reflections/)
+[![BSD](https://img.shields.io/badge/Licence-The%20New%20BSD%20Licence-yellow.svg)](http://www.opensource.org/licenses/bsd-license.html)
+[![WTFPL](https://img.shields.io/badge/Licence-WTFPL-red.svg)](http://www.wtfpl.net/)
+* [ts-generator](https://github.com/ntrrgc/ts-generator) 
+[![Apache-2.0](https://img.shields.io/badge/Licence-Apache--2.0-blue.svg)](https://github.com/ntrrgc/ts-generator/blob/master/LICENSE.md)

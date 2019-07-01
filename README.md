@@ -8,6 +8,7 @@ Create typescript definitions from annotated java (or other JVM language) types
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=com.github.j2ts%3Ajava-to-typescript-maven-plugin&metric=coverage)](https://sonarcloud.io/dashboard?id=com.github.j2ts%3Ajava-to-typescript-maven-plugin)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.j2ts/java-to-typescript-maven-plugin.svg)](https://search.maven.org/artifact/com.github.j2ts/java-to-typescript-maven-plugin/)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
 ## Usage
 ```xml

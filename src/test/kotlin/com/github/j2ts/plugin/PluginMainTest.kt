@@ -28,17 +28,18 @@ class PluginMainTest {
         val output = out.readText()
         assertEquals("""
             export interface Bar {
-                bar: number | null;
+                bar: number | undefined;
                 foo: number;
+                foo2: number | undefined;
                 s: string;
                 sum: number;
-                summed: number | null;
-                t: string | null;
+                summed: number | undefined;
+                t: string | undefined;
             }
 
             export interface Foo {
                 bar: Bar;
-                name: string | null;
+                name: string | undefined;
                 tags: string[];
             }
         """.trimIndent(), output)
@@ -56,6 +57,7 @@ data class Foo(
 
 data class Bar(
         val foo: Long,
+        val foo2: Long?,
         val bar: Int? = null,
         val sum: Double = 0.0,
         val summed: Double?,

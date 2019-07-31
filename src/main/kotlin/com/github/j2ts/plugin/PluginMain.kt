@@ -1,6 +1,7 @@
 package com.github.j2ts.plugin
 
 import me.ntrrgc.tsGenerator.TypeScriptGenerator
+import me.ntrrgc.tsGenerator.VoidType.UNDEFINED
 import org.apache.maven.plugin.AbstractMojo
 import org.apache.maven.plugins.annotations.LifecyclePhase.COMPILE
 import org.apache.maven.plugins.annotations.Mojo
@@ -60,7 +61,7 @@ class PluginMain : AbstractMojo() {
     override fun execute() {
         val r = Reflections(loader)
         val a = r.getTypesAnnotatedWith(annotationClass).map { it.kotlin }.toSet()
-        val text = TypeScriptGenerator(a)
+        val text = TypeScriptGenerator(rootClasses = a, voidType = UNDEFINED)
                 .individualDefinitions
                 .joinToString("\n\n") { "export $it" }
         log.info(text)

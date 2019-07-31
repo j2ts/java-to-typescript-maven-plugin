@@ -14,19 +14,19 @@ import java.net.URLClassLoader
 class PluginMain : AbstractMojo() {
 
     @Parameter(readonly = true, defaultValue = "\${project}")
-    private lateinit var project: MavenProject
+    lateinit var project: MavenProject
 
     @Parameter(property = "j2ts.classDir", required = false)
-    private var classDir: String? = null
+    var classDir: String? = null
 
     @Parameter(property = "j2ts.outputFile")
-    private var outputFileRef: String? = null
+    var outputFileRef: String? = null
     private val outputFile: File by lazy {
         File(outputFileRef ?: "${project.build.outputDirectory}/j2ts/${project.artifactId}.ts.d")
     }
 
     @Parameter(property = "j2ts.annotation", required = true)
-    private lateinit var annotation: String
+    lateinit var annotation: String
 
     @Suppress("UNCHECKED_CAST")
     private val annotationClass: Class<out Annotation> by lazy {
@@ -60,7 +60,9 @@ class PluginMain : AbstractMojo() {
     override fun execute() {
         val r = Reflections(loader)
         val a = r.getTypesAnnotatedWith(annotationClass).map { it.kotlin }.toSet()
-        val text = TypeScriptGenerator(a).individualDefinitions.joinToString("\n\n") { "export $it" }
+        val text = TypeScriptGenerator(a)
+                .individualDefinitions
+                .joinToString("\n\n") { "export $it" }
         log.info(text)
         outputFile.parentFile.mkdirs()
         outputFile.writeText(text)

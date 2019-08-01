@@ -1,6 +1,9 @@
 package com.example
 
-@AKotLinAnnotation
-data class AKotlinDataClass(val asdf: String)
+import kotlin.annotation.AnnotationRetention.RUNTIME
 
+@AKotLinAnnotation
+data class AKotlinDataClass(val asdf: String, val trew: Long?)
+
+@Retention(RUNTIME)
 annotation class AKotLinAnnotation

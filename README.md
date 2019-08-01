@@ -29,9 +29,8 @@ Create typescript definitions from annotated java (or other JVM language) types
 </project>
 ```
 
-## Code coverage
-0% unit test?! Most of the code is property bindings.. 
-The CI for master and release pipeline build the example project as part of the build, dogfooding the plugin.
+## Nullable member properties
+It seems that kotlin nullability doesn't load with the URLClassLoader `KType#isMarkedNullable` always returns false, and `ts-generator` needs that info to generate correctly 
 
 ## Local Nexus
 Might prevent you from obtaining the `com.github.ntrrgc:ts-generator` dependency, that is provided by JitPack.

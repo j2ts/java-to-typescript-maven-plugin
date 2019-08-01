@@ -6,12 +6,17 @@ class Main {
 
         @JvmStatic
         fun main(args:Array<String>) {
-            try {
-                val tsDefinitions = Main::class.java.getResource("/j2ts/example.ts.d").readText()
-                assert(tsDefinitions.contains("AKotlinDataClass"))
-                println("OK!")
-            } catch (e: Exception) {
-                e.printStackTrace()
+            val tsDefinitions = Main::class.java.getResource("/j2ts/example.ts.d").readText()
+            if (tsDefinitions == """
+                    export interface AKotlinDataClass {
+                        asdf: string;
+                        trew: number;
+                    }
+                """.trimIndent()) {
+                println("All ok!!")
+            } else {
+                println("Bad ts definition result")
+                println(tsDefinitions)
                 System.exit(1)
             }
         }
